@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} 电子证照管理系统{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--必备的Css-->
+    <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/alertify.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/opp-app.css' %}" rel="stylesheet">
+
+
+    {% block css %}
+
+    {% endblock %}
+
+    {% block js %}
+
+    {% endblock %}
+</head>
+<body>
+<div id="wrap">
+    <!-- navbar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                {% include 'navbar.html' %}
+            </div>
+        </div>
+    </div>
+    <!--/ navbar-->
+    <div class="container-fluid">
+        <!-- Side menu -->
+        <div class="sidebar-nav nav-collapse collapse">
+            <div class="user_side clearfix">
+                <img src="{% static 'assets/img/examinee.jpg' %}" alt="Odinn god of Thunder">
+                <h5 id="currentuser"></h5>
+                <a href="{% url 'myapp:person' %}"><i class="icon-cog"></i> {{ request.session.username }}的个人中心</a>
+            </div>
+            {% include 'menu.html' %}
+        </div>
+    </div>
+    <!-- /Side menu -->
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+</body>
+<script type="text/javascript" src="{% static 'assets/js/angular.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+{#<script type="text/javascript" src="{% static 'assets/js/jquery.cookie.js' %}"></script>#}
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/raphael-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src='{% static 'assets/js/sparkline.js' %}'></script>
+<script type="text/javascript" src='{% static 'assets/js/morris.min.js' %}'></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.masonry.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.imagesloaded.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.facybox.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.alertify.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery.knob.js' %}"></script>
+<script type='text/javascript' src='{% static 'assets/js/fullcalendar.min.js' %}'></script>
+<script type='text/javascript' src='{% static 'assets/js/jquery.gritter.min.js' %}'></script>
+<script type="text/javascript" src="{% static 'assets/js/realm.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/layer.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/opp-app.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/opp-setting.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'assets/js/select2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap-colorpicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap-datepicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap-timepicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/opp-scorepersonal.js' %}"></script>
+{% block downjs %}
+
+{% endblock %}
+</html>
